@@ -1,11 +1,26 @@
+body {
+  position: relative;
+}
+
 .App {
   color: black;
+  text-align: center;
+}
+.App div {
+  box-sizing: border-box;
+}
+.App .list {
+  padding-left: 20px;
+  text-align: left;
+  border-bottom: 1px solid gray;
+}
+.App .list .like {
+  padding: 20px;
+  cursor: pointer;
 }
 .App .black-nav {
   background-color: black;
   color: white;
-  position: absolute;
-  top: 0px;
   width: 100%;
   padding: 10px;
 }
