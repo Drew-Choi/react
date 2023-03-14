@@ -4,7 +4,6 @@ body {
 
 .App {
   color: black;
-  text-align: center;
 }
 .App div {
   box-sizing: border-box;
@@ -30,4 +29,11 @@ body {
 }
 .App .food {
   margin-top: 100px;
+}
+
+.modal {
+  margin-top: 20px;
+  padding: 20px;
+  background: #eee;
+  text-align: left;
 }/*# sourceMappingURL=App.css.map */

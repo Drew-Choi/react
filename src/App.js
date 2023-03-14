@@ -24,7 +24,7 @@ function App() {
       <button
         style={{
           position: "relative",
-          left: "-520px",
+          left: "-470px",
           fontSize: "15px",
           margin: "10px",
         }}
@@ -33,6 +33,26 @@ function App() {
         }}
       >
         오름차순
+      </button>
+
+      <button
+        style={{
+          position: "relative",
+          left: "-475px",
+          fontSize: "15px",
+          margin: "10px",
+        }}
+        onClick={() => {
+          titleChangeFunc([
+            ...title.sort(function (a, b) {
+              if (a < b) return 1;
+              if (a > b) return -1;
+              if (a === b) return 0;
+            }),
+          ]);
+        }}
+      >
+        내림차순
       </button>
 
       <div className="list">
@@ -76,8 +96,36 @@ function App() {
       <h4 className="food" style={{ color: "red", fontSize: "50px" }}>
         {post}
       </h4>
+
+      <Modal1></Modal1>
     </div>
   );
 }
+
+function Modal1() {
+  return (
+    <div className="modal">
+      <h4>제목</h4>
+      <p>날짜</p>
+      <p>상세내용</p>
+    </div>
+  );
+}
+
+//컴포넌트는 병렬구조가 안됨.
+//그럼에도 병렬구조가 필요하다 싶음 <>, </> 이렇게 묶어줄 수 있다.
+//아래는 병렬구조예시
+// function Modal1() {
+//   return (
+//     <>
+//       <div className="modal">
+//         <h4>제목</h4>
+//         <p>날짜</p>
+//         <p>상세내용</p>
+//       </div>
+//       <div></div>
+//     </>
+//   );
+// }
 
 export default App;
