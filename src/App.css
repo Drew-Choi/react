@@ -18,6 +18,10 @@ body {
   padding: 20px;
   cursor: pointer;
 }
+.App .list .changeName {
+  padding: 10px;
+  cursor: pointer;
+}
 .App .black-nav {
   background-color: black;
   color: white;
