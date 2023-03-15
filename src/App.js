@@ -14,6 +14,7 @@ function App() {
   ]);
   let [like, likeFunc] = useState(0);
   let [logo] = useState("React Blog");
+  let [modal, setModal] = useState("off");
 
   return (
     <div className="App">
@@ -23,8 +24,6 @@ function App() {
 
       <button
         style={{
-          position: "relative",
-          left: "-470px",
           fontSize: "15px",
           margin: "10px",
         }}
@@ -37,8 +36,6 @@ function App() {
 
       <button
         style={{
-          position: "relative",
-          left: "-475px",
           fontSize: "15px",
           margin: "10px",
         }}
@@ -90,14 +87,26 @@ function App() {
         <p>3월 13일 발행</p>
       </div>
       <div className="list">
-        <h4>{title[2]}</h4>
+        <h4
+          onClick={() => {
+            if (modal === "off") {
+              setModal("on");
+            } else {
+              setModal("off");
+            }
+          }}
+        >
+          {title[2]}
+        </h4>
         <p>3월 13일 발행</p>
       </div>
       <h4 className="food" style={{ color: "red", fontSize: "50px" }}>
         {post}
       </h4>
-
-      <Modal1></Modal1>
+      {
+        //리액트에서 조건문은 3항 연산자로 가능
+        modal === "on" ? <Modal1 /> : null
+      }
     </div>
   );
 }

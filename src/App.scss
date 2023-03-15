@@ -14,6 +14,13 @@ body {
     text-align: left;
     border-bottom: 1px solid gray;
 
+    h4 {
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
     .like {
       padding: 20px;
       cursor: pointer;
