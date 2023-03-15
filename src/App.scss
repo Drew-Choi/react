@@ -15,15 +15,19 @@ body {
     border-bottom: 1px solid gray;
 
     h4 {
+      display: inline-block;
       cursor: pointer;
-      &:hover {
-        text-decoration: underline;
-      }
+    &:hover {
+      text-decoration: underline;
+     }
     }
-
-    .like {
-      padding: 20px;
-      cursor: pointer;
+    span {
+     font-weight: 700;
+     padding: 10px;
+     cursor: pointer;
+     &:hover {
+      text-decoration: underline;
+     }
     }
 
     .changeName {

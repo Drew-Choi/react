@@ -14,14 +14,19 @@ body {
   border-bottom: 1px solid gray;
 }
 .App .list h4 {
+  display: inline-block;
   cursor: pointer;
 }
 .App .list h4:hover {
   text-decoration: underline;
 }
-.App .list .like {
-  padding: 20px;
+.App .list span {
+  font-weight: 700;
+  padding: 10px;
   cursor: pointer;
+}
+.App .list span:hover {
+  text-decoration: underline;
 }
 .App .list .changeName {
   padding: 10px;
