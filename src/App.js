@@ -17,9 +17,15 @@ function App() {
   for (let i = 0; i < title.length; i += 1) {
     count.push(0);
   }
+
+  let modalCount = [];
+  for (let i = 0; i < title.length; i += 1) {
+    modalCount.push("off");
+  }
+
   let [like, likeFunc] = useState(count);
   let [logo] = useState("React Blog");
-  let [modal, setModal] = useState("off");
+  let [modal, setModal] = useState(modalCount);
 
   return (
     <div className="App">
@@ -110,7 +116,15 @@ function App() {
           <div className="list" key={num}>
             <h4
               onClick={() => {
-                modal === "off" ? setModal("on") : setModal("off");
+                if (modal[num] === "off") {
+                  let copy1 = [...modal];
+                  copy1[num] = "on";
+                  setModal(copy1);
+                } else {
+                  let copy2 = [...modal];
+                  copy2[num] = "off";
+                  setModal(copy2);
+                }
               }}
             >
               {el}
@@ -130,12 +144,14 @@ function App() {
         );
       })}
 
-      {
-        // 리액트에서 조건문은 3항 연산자로 가능
-        modal === "on" ? (
-          <Modal1 color="gray" titleArr={title} titleSet={titleChangeFunc} />
-        ) : null
-      }
+      {title.map((el, num) => {
+        return (
+          // 리액트에서 조건문은 3항 연산자로 가능
+          modal[num] === "on" ? (
+            <Modal1 key={num} color="gray" titleArr={title[num]} />
+          ) : null
+        );
+      })}
     </div>
   );
 }
@@ -148,10 +164,10 @@ function App() {
 function Modal1(props) {
   return (
     <div className="modal" style={{ backgroundColor: props.color }}>
-      <h4>{props.titleArr[0]}</h4>
+      <h4>{props.titleArr}</h4>
       <p>날짜</p>
       <p>상세내용</p>
-      <button
+      {/* <button
         onClick={() => {
           let copy = [...props.titleArr];
           copy[0] = "남남남남남";
@@ -159,7 +175,7 @@ function Modal1(props) {
         }}
       >
         글 수정
-      </button>
+      </button> */}
     </div>
   );
 }
