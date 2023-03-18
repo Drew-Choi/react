@@ -17,6 +17,7 @@ function App() {
   for (let i = 0; i < title.length; i += 1) {
     count.push(0);
   }
+  let [inputValue, changeInputValue] = useState("");
 
   let modalCount = [];
   for (let i = 0; i < title.length; i += 1) {
@@ -140,9 +141,36 @@ function App() {
               좋아요 &nbsp;{like[num]}
             </span>
             <p>3월 13일 발행</p>
+            <button
+              onClick={() => {
+                let copy = [...title];
+                copy.splice(num, 1);
+                titleChangeFunc(copy);
+              }}
+            >
+              삭제
+            </button>
           </div>
         );
       })}
+
+      <input
+        type={"text"}
+        onChange={(e) => {
+          changeInputValue(e.target.value);
+        }}
+      ></input>
+      <button
+        onClick={() => {
+          let copy = [...title];
+          copy.unshift(inputValue);
+          titleChangeFunc(copy);
+        }}
+      >
+        글 추가
+      </button>
+      {/* e 추가 내용. 이벤트버블링 현상을 막아줄 수 있다.
+      e.stopPropagation() */}
 
       {title.map((el, num) => {
         return (
@@ -179,6 +207,32 @@ function Modal1(props) {
     </div>
   );
 }
+
+//class문법으로 컴포넌트 만들기
+// class Modal3 extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       name: "kim",
+//       age: 20,
+//     };
+//   }
+//   render() {
+//     return (
+//       <div>
+//         안녕 컴포넌트{this.state.age}
+// {this.props} 부모꺼 가져오기
+//         <button
+//           onClick={() => {
+//             this.setState({ age: 21 });
+//           }}
+//         >
+//           버튼
+//         </button>
+//       </div>
+//     );
+//   }
+// }
 
 //컴포넌트는 병렬구조가 안됨.
 //그럼에도 병렬구조가 필요하다 싶음 <>, </> 이렇게 묶어줄 수 있다.
