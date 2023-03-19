@@ -221,7 +221,7 @@ function Modal1(props) {
 //     return (
 //       <div>
 //         안녕 컴포넌트{this.state.age}
-// {this.props} 부모꺼 가져오기
+//         {this.props} 부모꺼 가져오기
 //         <button
 //           onClick={() => {
 //             this.setState({ age: 21 });
